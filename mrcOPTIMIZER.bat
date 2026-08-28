@@ -363,6 +363,10 @@ rd /s /q C:\$Recycle.Bin >nul 2>&1
 echo [101/101] Optimizing Network DNS Cache...
 ipconfig /flushdns >nul 2>&1
 
+echo [102/102] Disabling SysMain (Superfetch) Service...
+sc config SysMain start= disabled >nul 2>&1
+net stop SysMain >nul 2>&1
+
 echo.
 echo =======================================================================
 echo                         OPTIMIZATION COMPLETED
